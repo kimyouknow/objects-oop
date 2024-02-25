@@ -24,6 +24,9 @@ const daysOfWeek = [
   "Saturday",
 ];
 
+/**
+ * deprecated period condition과 sequence condition로 대체됨
+ */
 export class DiscountCondition {
   private type: DiscountConditionType;
   private sequence: number;

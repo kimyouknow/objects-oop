@@ -1,6 +1,8 @@
 import { DiscountCondition } from "~src/chapter5/DiscountCondition";
 import { Money } from "~src/chapter5/Money";
+import { PeriodCondition } from "~src/chapter5/PeriodCondition";
 import { Screening } from "~src/chapter5/Screening";
+import { SequenceCondition } from "~src/chapter5/SequenceCondition";
 
 enum MovieType {
   AMOUNT_DISCOUNT,
@@ -16,6 +18,8 @@ export class Movie {
   private movieType: MovieType;
   private discountAmount: Money;
   private discountPercent: number;
+  private periodConditions: PeriodCondition[];
+  private sequenceConditions: SequenceCondition[];
 
   constructor(
     title: string,
@@ -24,7 +28,9 @@ export class Movie {
     discountConditions: DiscountCondition[],
     movieType: MovieType,
     discountAmount: Money,
-    discountPercent: number
+    discountPercent: number,
+    periodConditions: PeriodCondition[],
+    sequenceConditions: SequenceCondition[]
   ) {
     this.title = title;
     this.runningTime = runningTime;
@@ -33,6 +39,8 @@ export class Movie {
     this.movieType = movieType;
     this.discountAmount = discountAmount;
     this.discountPercent = discountPercent;
+    this.periodConditions = periodConditions;
+    this.sequenceConditions = sequenceConditions;
   }
 
   calculateMovieFee(screening: Screening): Money {
@@ -43,7 +51,20 @@ export class Movie {
   }
 
   private isDiscountable(screening: Screening): boolean {
-    return this.discountConditions.some((condition) =>
+    return (
+      this.checkPeriodConditions(screening) ||
+      this.checkSequenceConditions(screening)
+    );
+  }
+
+  private checkPeriodConditions(screening: Screening): boolean {
+    return this.periodConditions.some((condition) =>
+      condition.isSatisfiedBy(screening)
+    );
+  }
+
+  private checkSequenceConditions(screening: Screening): boolean {
+    return this.sequenceConditions.some((condition) =>
       condition.isSatisfiedBy(screening)
     );
   }
