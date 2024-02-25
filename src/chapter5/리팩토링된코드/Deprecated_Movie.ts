@@ -1,8 +1,6 @@
 import { DiscountCondition } from "~src/chapter5/DiscountCondition";
 import { Money } from "~src/chapter5/Money";
-import { PeriodCondition } from "~src/chapter5/PeriodCondition";
 import { Screening } from "~src/chapter5/Screening";
-import { SequenceCondition } from "~src/chapter5/SequenceCondition";
 
 enum MovieType {
   AMOUNT_DISCOUNT,

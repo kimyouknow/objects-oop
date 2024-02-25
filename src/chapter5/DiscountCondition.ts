@@ -1,9 +1,6 @@
+import { DiscountConditionType } from "~src/chapter5/DiscountConditionType";
 import { Screening } from "~src/chapter5/Screening";
 
-enum DiscountConditionType {
-  SEQUENCE,
-  PERIOD,
-}
 type DayOfWeek =
   | "MONDAY"
   | "TUESDAY"

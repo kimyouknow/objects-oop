@@ -1,5 +1,7 @@
-export enum MovieType {
-  AMOUNT_DISCOUNT, // 금액 할인 정책
-  PERCENT_DISCOUNT, // 비율 할인 정책
-  NONE_DISCOUNT, // 미적용
-}
+export const MovieType = {
+  AMOUNT_DISCOUNT: "AMOUNT_DISCOUNT",
+  PERCENT_DISCOUNT: "PERCENT_DISCOUNT",
+  NONE_DISCOUNT: "NONE_DISCOUNT",
+} as const;
+
+export type MovieType = (typeof MovieType)[keyof typeof MovieType];
