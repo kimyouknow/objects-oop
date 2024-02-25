@@ -1,4 +1,5 @@
-import { Screening } from "./Screening"; // Assuming Screening class is in the same directory
+import { DiscountCondition } from "~src/chapter5/DiscountCondition";
+import { Screening } from "./Screening";
 
 type DayOfWeek =
   | "MONDAY"
@@ -19,7 +20,7 @@ const daysOfWeek = [
   "Saturday",
 ];
 
-export class PeriodCondition {
+export class PeriodCondition implements DiscountCondition {
   private dayOfWeek: DayOfWeek;
   private startTime: number;
   private endTime: number;

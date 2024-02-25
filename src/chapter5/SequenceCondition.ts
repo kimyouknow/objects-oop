@@ -1,6 +1,7 @@
+import { DiscountCondition } from "~src/chapter5/DiscountCondition";
 import { Screening } from "~src/chapter5/Screening";
 
-export class SequenceCondition {
+export class SequenceCondition implements DiscountCondition {
   private sequence: number;
 
   constructor(sequence: number) {
