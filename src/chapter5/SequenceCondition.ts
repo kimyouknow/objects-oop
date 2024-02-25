@@ -1,14 +1,14 @@
-import { DiscountCondition } from "~src/chapter5/DiscountCondition";
-import { Screening } from "~src/chapter5/Screening";
+// import { DiscountCondition } from "~src/chapter5/DiscountCondition";
+// import { Screening } from "~src/chapter5/Screening";
 
-export class SequenceCondition implements DiscountCondition {
-  private sequence: number;
+// export class SequenceCondition implements DiscountCondition {
+//   private sequence: number;
 
-  constructor(sequence: number) {
-    this.sequence = sequence;
-  }
+//   constructor(sequence: number) {
+//     this.sequence = sequence;
+//   }
 
-  isSatisfiedBy(screening: Screening): boolean {
-    return this.sequence === screening.getSequence();
-  }
-}
+//   isSatisfiedBy(screening: Screening): boolean {
+//     return this.sequence === screening.getSequence();
+//   }
+// }
